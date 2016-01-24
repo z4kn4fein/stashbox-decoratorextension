@@ -1,7 +1,7 @@
 version: 1.0.{build}
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: MZ/eGjY2NTKjnjRd0X2cXm+u17q8xf8jw+/aOK3dmm1Gd85iwxmpS2nBrXtoxJ/Q
+    secure: XNbT3F6G4V7AegyGBZZPQ5cOEtic5P6OJUXd9K2wmj3mGXmQsJezis8oz9/vzDLq
 pull_requests:
   do_not_increment_build_number: true
 configuration: Release
