@@ -1,7 +1,7 @@
 #stashbox-decoratorextension
 [![Build status](https://ci.appveyor.com/api/projects/status/jkc3mbxaapufaobi/branch/master?svg=true)](https://ci.appveyor.com/project/pcsajtai/stashbox-decoratorextension/branch/master) [![Coverage Status](https://coveralls.io/repos/github/z4kn4fein/stashbox-decoratorextension/badge.svg?branch=master)](https://coveralls.io/github/z4kn4fein/stashbox-decoratorextension?branch=master) [![Join the chat at https://gitter.im/z4kn4fein/stashbox-decoratorextension](https://img.shields.io/badge/gitter-join%20chat-green.svg)](https://gitter.im/z4kn4fein/stashbox-decoratorextension?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NuGet Version](http://img.shields.io/nuget/v/Stashbox.DecoratorExtension.svg?style=flat)](https://www.nuget.org/packages/Stashbox.DecoratorExtension/) [![NuGet Downloads](http://img.shields.io/nuget/dt/Stashbox.DecoratorExtension.svg?style=flat)](https://www.nuget.org/packages/Stashbox.DecoratorExtension/)
 
-This extension supposed to allow decorator registration for services registered in the [Stashbox](https://github.com/z4kn4fein/stashbox) container.
+This extension supposed to allow the decoration of the services registered in the [Stashbox](https://github.com/z4kn4fein/stashbox) container.
 
 **Supported platforms**:
 
@@ -12,18 +12,18 @@ This extension supposed to allow decorator registration for services registered 
  - Xamarin (Android/iOS/iOS Classic)
  
 ###Usage
-Register the decorator extension into the container.
+Registering the decorator extension for the container.
 ```c#
 var container = new StashboxContainer();
 container.RegisterExtension(new DecoratorExtension());
 ```
-Then you can register your decorators globally, which means the container will decorate every related service at resolution time, or you can specify which services you want to decorate one by one.
+Then you can register your decorator services globally, which means the container will decorate every related services at resolution time, or you can specify which services you want to decorate one by one.
 
 #####Global registration
 ```c#
 container.RegisterDecorator<IFoo, FooDecorator>();
 ```
-> With this type of decorator registration the container will decorate all *IFoo* implementations with the *FooDecorator*.
+> With this type of usage the container will decorate all *IFoo* implementations with the *FooDecorator*.
 
 If you specify more than one decorators, the resolved services will be decorated in the exact same order as the decorators were registered into the container. 
 ```c#
@@ -32,21 +32,21 @@ container.RegisterDecorator<IFoo, FooDecorator2>();
 ```
 
 #####Explicit registration
-You can register your decorators directly to a service registration with the fluent form.
+You can bind decorators directly to a service registration if you use the fluent form.
 ```c#
 container.PrepareType<IFoo, Foo>().DecorateWith<FooDecorator>().Register();
 ```
-> With this type of decorator registration the container will decorate just the *Foo* implementation of the *IFoo* interface.
+> In this way the container will decorate just the *Foo* implementation of the *IFoo* interface.
 
 Just like with the global registration, you can register more than one decorators at the same time.
 ```c#
 container.PrepareType<IFoo, Foo>().DecorateWith<FooDecorator1>().DecorateWith<FooDecorator2>().Register();
 ```
 
-#####Mixed decoration
-You can use both ways of decorator registration at the same time.
+#####Mixed registration
+You can mix both ways of the registrations.
 ```c#
 container.PrepareType<IFoo, Foo>().DecorateWith<FooDecorator1>().DecorateWith<FooDecorator2>().Register();
 container.RegisterDecorator<IFoo, FooDecorator3>();
 ```
-> The decoration order depending on the registration order of the decorators, so the order in this case is: FooDecorator1 -> FooDecorator2 -> FooDecorator3.
+> The decoration order is depending on the order of the decorator registrations, so the order in this case is: FooDecorator1 -> FooDecorator2 -> FooDecorator3.
