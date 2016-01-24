@@ -5,7 +5,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Stashbox.DecoratorExtension")]
-[assembly: AssemblyDescription("Decorator extension for Stashbox container")]
+[assembly: AssemblyDescription("Decorator extension for Stashbox container.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Peter Csajtai")]
 [assembly: AssemblyProduct("Stashbox.DecoratorExtension")]

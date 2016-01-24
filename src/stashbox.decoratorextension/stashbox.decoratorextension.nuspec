@@ -9,7 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <copyright>Copyright © Peter Csajtai 2015</copyright>
-	<projectUrl>https://github.com/z4kn4fein/stashbox-extensions</projectUrl>
-	<licenseUrl>https://raw.githubusercontent.com/z4kn4fein/stashbox-extensions/master/LICENSE</licenseUrl>
+	<projectUrl>https://github.com/z4kn4fein/stashbox-decoratorextension</projectUrl>
+	<licenseUrl>https://raw.githubusercontent.com/z4kn4fein/stashbox-decoratorextension/master/LICENSE</licenseUrl>
   </metadata>
 </package>
