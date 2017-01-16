@@ -48,7 +48,7 @@ namespace Stashbox.Extensions
         public void Initialize(IContainerContext containerContext)
         {
             containerContext.Bag.Add(MessagePublisherKey, this.messagePublisher);
-            this.container = containerContext.Container.CreateChildContainer();
+            this.container = containerContext.Container.BeginScope();
         }
 
         /// <summary>

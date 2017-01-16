@@ -16,8 +16,8 @@ namespace Stashbox.Infrastructure
         /// <param name="container"><see cref="IStashboxContainer"/></param>
         /// <returns><see cref="IDependencyRegistrator"/></returns>
         public static IDependencyRegistrator RegisterDecorator<TFrom, TDecorator>(this IStashboxContainer container) where TDecorator : TFrom
-        {
-            object publisher = null;
+        {   
+            object publisher;
             if (!container.ContainerContext.Bag.TryGet(DecoratorExtension.MessagePublisherKey, out publisher))
                 return container;
             var messagePublisher = (IMessagePublisher)publisher;
@@ -38,7 +38,7 @@ namespace Stashbox.Infrastructure
         /// <returns><see cref="IRegistrationContext"/></returns>
         public static IRegistrationContext DecorateWith<TDecorator>(this IRegistrationContext context)
         {
-            object publisher = null;
+            object publisher;
             if (!context.ContainerContext.Bag.TryGet(DecoratorExtension.MessagePublisherKey, out publisher))
                 return context;
             var messagePublisher = (IMessagePublisher)publisher;
