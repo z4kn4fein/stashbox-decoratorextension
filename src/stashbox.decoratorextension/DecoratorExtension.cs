@@ -55,15 +55,15 @@ namespace Stashbox.Extensions
         /// Executes the post build operation on an already built object by the the <see cref="IStashboxContainer"/>
         /// </summary>
         /// <param name="instance">The instance to extend.</param>
-        /// <param name="targetType">The type of the object.</param>
         /// <param name="containerContext">The context object of the <see cref="IStashboxContainer"/></param>
         /// <param name="resolutionInfo">The resolution info provided by the <see cref="IStashboxContainer"/></param>
         /// <param name="resolveType">The resolve type provided by the <see cref="IStashboxContainer"/></param>
         /// <param name="injectionParameters">The injection parameters provided by the <see cref="IStashboxContainer"/></param>
         /// <returns>The extended object.</returns>
-        public object PostBuild(object instance, Type targetType, IContainerContext containerContext, ResolutionInfo resolutionInfo,
+        public object PostBuild(object instance, IContainerContext containerContext, ResolutionInfo resolutionInfo,
            TypeInformation resolveType, InjectionParameter[] injectionParameters = null)
         {
+            var type = instance.GetType();
             LinkedList<DecoratorEntry> decorators;
             if (!this.decoratorStore.TryGet(resolveType.Type, out decorators)) return instance;
 
@@ -71,8 +71,8 @@ namespace Stashbox.Extensions
             {
                 instance = decorators.Where(
                     decoratorEntry =>
-                        targetType == decoratorEntry.DecoratorTarget ||
-                        decoratorEntry.DecoratorTarget.GetTypeInfo().IsAssignableFrom(targetType.GetTypeInfo()))
+                        type == decoratorEntry.DecoratorTarget ||
+                        decoratorEntry.DecoratorTarget.GetTypeInfo().IsAssignableFrom(type.GetTypeInfo()))
                     .Aggregate(instance,
                         (current, decoratorEntry) =>
                             this.container.Resolve(resolveType.Type, decoratorEntry.DecoratorRegistrationName,

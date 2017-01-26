@@ -53,13 +53,15 @@
       <HintPath>..\packages\Sendstorm.1.0.58\lib\portable45-net45+win8+wp8+wpa81\Sendstorm.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Stashbox, Version=1.0.132.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stashbox.1.0.132\lib\portable45-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
+    <Reference Include="Stashbox, Version=1.0.159.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.1.0.159\lib\portable45-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\..\sn.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
