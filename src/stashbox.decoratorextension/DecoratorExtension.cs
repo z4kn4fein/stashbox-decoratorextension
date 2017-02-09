@@ -3,7 +3,6 @@ using Sendstorm.Infrastructure;
 using Stashbox.Entity;
 using Stashbox.Infrastructure;
 using Stashbox.Infrastructure.ContainerExtension;
-using Stashbox.Overrides;
 using Stashbox.Utils;
 using System;
 using System.Collections.Generic;
@@ -75,8 +74,10 @@ namespace Stashbox.Extensions
                         decoratorEntry.DecoratorTarget.GetTypeInfo().IsAssignableFrom(type.GetTypeInfo()))
                     .Aggregate(instance,
                         (current, decoratorEntry) =>
-                            this.container.Resolve(resolveType.Type, decoratorEntry.DecoratorRegistrationName,
-                                overrides: new[] { new TypeOverride(resolveType.Type, current) }));
+                        {
+                            var factory = this.container.ResolveFactory(resolveType.Type, decoratorEntry.DecoratorRegistrationName, resolveType.Type);
+                            return factory.DynamicInvoke(current);
+                        });
             }
 
             return instance;

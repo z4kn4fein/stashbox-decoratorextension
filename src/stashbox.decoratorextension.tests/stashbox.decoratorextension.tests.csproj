@@ -39,8 +39,8 @@
       <HintPath>..\packages\Sendstorm.1.0.58\lib\portable45-net45+win8+wp8+wpa81\Sendstorm.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Stashbox, Version=1.0.159.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stashbox.1.0.159\lib\portable45-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
+    <Reference Include="Stashbox, Version=2.0.5.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.2.0.5\lib\portable45-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -68,7 +68,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

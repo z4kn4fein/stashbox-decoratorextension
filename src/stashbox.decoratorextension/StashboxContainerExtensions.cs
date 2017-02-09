@@ -1,5 +1,6 @@
 ﻿using Sendstorm.Infrastructure;
 using Stashbox.Extensions;
+using Stashbox.Infrastructure.Registration;
 
 namespace Stashbox.Infrastructure
 {
