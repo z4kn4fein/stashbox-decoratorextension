@@ -14,7 +14,7 @@ assembly_info:
   assembly_informational_version: '{version}'
 before_build:
 - nuget restore src\stashbox.decoratorextension.sln
-- nuget update src\stashbox.decoratorextension.sln -id Stashbox
+- nuget update src\stashbox.decoratorextension.sln -id Stashbox -id Sendstorm
 build:
   project: src\stashbox.decoratorextension.sln
   publish_nuget: true
