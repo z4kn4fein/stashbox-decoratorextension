@@ -49,20 +49,17 @@
     <Compile Include="StashboxContainerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Sendstorm, Version=0.0.0.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sendstorm.2.0.3\lib\portable-net45+win8+wp8+wpa81\Sendstorm.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Stashbox, Version=0.0.0.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
-      <HintPath>..\packages\Stashbox.2.0.33\lib\portable-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <None Include="..\..\sn.snk" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="..\..\sn.snk" />
+    <Reference Include="Sendstorm, Version=2.1.1.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendstorm.2.1.1\lib\portable-net45+win8+wp8+wpa81\Sendstorm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Stashbox, Version=2.2.0.0, Culture=neutral, PublicKeyToken=9778e33426732b68, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stashbox.2.2.0\lib\portable-net45+win8+wp8+wpa81\Stashbox.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
