@@ -1,9 +1,9 @@
-#stashbox-decoratorextension
+# stashbox-decoratorextension
 [![Build status](https://ci.appveyor.com/api/projects/status/jkc3mbxaapufaobi/branch/master?svg=true)](https://ci.appveyor.com/project/pcsajtai/stashbox-decoratorextension/branch/master) [![Coverage Status](https://coveralls.io/repos/github/z4kn4fein/stashbox-decoratorextension/badge.svg?branch=master)](https://coveralls.io/github/z4kn4fein/stashbox-decoratorextension?branch=master) [![Join the chat at https://gitter.im/z4kn4fein/stashbox-decoratorextension](https://img.shields.io/badge/gitter-join%20chat-1dce73.svg)](https://gitter.im/z4kn4fein/stashbox-decoratorextension?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NuGet Version](https://buildstats.info/nuget/Stashbox.DecoratorExtension)](https://www.nuget.org/packages/Stashbox.DecoratorExtension/)
 
 This extension allows the usage of the decorator pattern on the services registered in the [Stashbox](https://github.com/z4kn4fein/stashbox) container.
 
-##Supported platforms
+## Supported platforms
 
  - .NET 4.5 and above
  - Windows 8/8.1/10
@@ -11,7 +11,7 @@ This extension allows the usage of the decorator pattern on the services registe
  - Windows Phone 8.1
  - Xamarin (Android/iOS/iOS Classic)
  
-##Usage
+## Usage
 Registering the decorator extension into the container.
 ```c#
 var container = new StashboxContainer();
@@ -19,7 +19,7 @@ container.RegisterExtension(new DecoratorExtension());
 ```
 Then you can register your decorator services globally, which means the container will decorate every related services at resolution time, or you can specify which services you want to decorate one by one.
 
-###Global registration
+### Global registration
 ```c#
 container.RegisterDecorator<IFoo, FooDecorator>();
 ```
@@ -31,7 +31,7 @@ container.RegisterDecorator<IFoo, FooDecorator1>();
 container.RegisterDecorator<IFoo, FooDecorator2>();
 ```
 
-###Explicit registration
+### Explicit registration
 You can bind decorators directly to a service registration.
 ```c#
 container.PrepareType<IFoo, Foo>().DecorateWith<FooDecorator>().Register();
@@ -43,7 +43,7 @@ Just like with the global registration, you can register more than one decorator
 container.PrepareType<IFoo, Foo>().DecorateWith<FooDecorator1>().DecorateWith<FooDecorator2>().Register();
 ```
 
-###Mixed registration
+### Mixed registration
 You can mix both ways of the registrations.
 ```c#
 container.PrepareType<IFoo, Foo>().DecorateWith<FooDecorator1>().DecorateWith<FooDecorator2>().Register();
