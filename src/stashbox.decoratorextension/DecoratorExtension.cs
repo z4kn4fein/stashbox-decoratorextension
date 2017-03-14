@@ -60,11 +60,11 @@ namespace Stashbox.Extensions
         /// <param name="injectionParameters">The injection parameters provided by the <see cref="IStashboxContainer"/></param>
         /// <returns>The extended object.</returns>
         public object PostBuild(object instance, IContainerContext containerContext, ResolutionInfo resolutionInfo,
-           TypeInformation resolveType, InjectionParameter[] injectionParameters = null)
+           Type resolveType, InjectionParameter[] injectionParameters = null)
         {
             var type = instance.GetType();
             LinkedList<DecoratorEntry> decorators;
-            if (!this.decoratorStore.TryGet(resolveType.Type, out decorators)) return instance;
+            if (!this.decoratorStore.TryGet(resolveType, out decorators)) return instance;
 
             lock (this.syncObject)
             {
@@ -75,7 +75,7 @@ namespace Stashbox.Extensions
                     .Aggregate(instance,
                         (current, decoratorEntry) =>
                         {
-                            var factory = this.container.ResolveFactory(resolveType.Type, decoratorEntry.DecoratorRegistrationName, resolveType.Type);
+                            var factory = this.container.ResolveFactory(resolveType, decoratorEntry.DecoratorRegistrationName, resolveType);
                             return factory.DynamicInvoke(current);
                         });
             }
