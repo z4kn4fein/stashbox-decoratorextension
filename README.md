@@ -1,4 +1,11 @@
-# stashbox-decoratorextension
+
+
+# stashbox-decoratorextension [archived]
+
+**This repository is archived due to the fact that this functionality is built-in available in the [core project](https://github.com/z4kn4fein/stashbox).**
+---
+
+
 [![Build status](https://ci.appveyor.com/api/projects/status/jkc3mbxaapufaobi/branch/master?svg=true)](https://ci.appveyor.com/project/pcsajtai/stashbox-decoratorextension/branch/master) [![Coverage Status](https://coveralls.io/repos/github/z4kn4fein/stashbox-decoratorextension/badge.svg?branch=master)](https://coveralls.io/github/z4kn4fein/stashbox-decoratorextension?branch=master) [![Join the chat at https://gitter.im/z4kn4fein/stashbox-decoratorextension](https://img.shields.io/badge/gitter-join%20chat-1dce73.svg)](https://gitter.im/z4kn4fein/stashbox-decoratorextension?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![NuGet Version](https://buildstats.info/nuget/Stashbox.DecoratorExtension)](https://www.nuget.org/packages/Stashbox.DecoratorExtension/)
 
 This extension allows the usage of the decorator pattern on the services registered in the [Stashbox](https://github.com/z4kn4fein/stashbox) container.
